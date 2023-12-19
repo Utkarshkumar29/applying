@@ -1,6 +1,6 @@
-import PostDetailPage from './components/postDetailPage';
-import LandingPage from './views/landingPage';
 import { BrowserRouter as Router,Routes,Route } from "react-router-dom";
+import LandingPage from './pages/landingPage';
+import PostDetailPage from "./views/postDetailPage";
 
 function App() {
   return (

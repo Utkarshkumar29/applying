@@ -1,23 +1,31 @@
-import React from "react";
+import React, { useState } from "react";
+import { ChildCommentsContainer, CommentText, CommentsContainer, CommentsWrapper, Fold, ReplyCount } from "../../styles/comments";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowDown, faArrowUp } from "@fortawesome/free-solid-svg-icons";
 
-const Comment = ({ comment }) => {
-    const commentStyle = {
-        border: '1px solid #ccc',
-        padding: '10px',
-        marginBottom: '10px',
-        borderRadius: '5px',
-      };
-    
+const Comment = ({ comment }) => {    
+    const [fold,setFold]=useState(false)
+    console.log(comment)
+
       return (
-        <div style={commentStyle} key={comment.id}>
-          <p>{comment.text}</p>
-            <div style={{ marginLeft: '20px' }}>
-              {comment.children.map((child) => (
-                <Comment key={child.id} comment={child} />
-              ))}
-            </div>
-        </div>
+        <CommentsContainer>
+            <CommentsWrapper>
+                <Fold><FontAwesomeIcon icon={fold? faArrowUp:faArrowDown} onClick={()=>{setFold(!fold)}}/><ReplyCount>{comment.children.length} replies</ReplyCount></Fold>
+		        <CommentText>{comment.text}</CommentText>
+                
+                <ChildCommentsContainer>
+                {fold && (
+                    <>
+                    {comment.children.map((child,index) => (
+                        <Comment key={index} comment={child} />
+                    ))}
+                    </>
+                )} 
+                </ChildCommentsContainer>
+			</CommentsWrapper> 
+		</CommentsContainer>
       );
 };
   
   export default Comment;
+  
