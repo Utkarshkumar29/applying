@@ -12,6 +12,7 @@ In the project directory, you can run:
 
 In this project, for the icons I have used FontAwesome library, you can add them using the following commmand:
 
+### `npm i fortawesome/react-fontawesome`
 ### `npm i fortawesome/free-solid-svg-icons`
 
 Runs the app in the development mode.\
