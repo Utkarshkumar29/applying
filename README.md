@@ -15,6 +15,9 @@ In this project, for the icons I have used FontAwesome library, you can add them
 ### `npm i fortawesome/react-fontawesome`
 ### `npm i fortawesome/free-solid-svg-icons`
 
+For adding styling(css) I have used styled-components, you can add them using the following command:
+### `npm i styled-components`
+
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
